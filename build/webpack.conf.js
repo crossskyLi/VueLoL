@@ -9,12 +9,13 @@ const resolve = require('./util').resolve;
 module.exports = {
   entry: {
     app: "./src/core/index.js",
+    view: "./views/main.js",
   },
   output: {
     path: path.resolve(process.cwd(), "./dist"),
     publicPath: './',
     chunkFilename: 'chunk-[id].js?[chunkhash]',
-    filename: '[name][hash:6].js?[hash]',
+    filename: '[name].js?[hash]',
     chunkFilename: '[id].js',
     libraryTarget: "umd",
     umdNamedDefine: true,
@@ -26,14 +27,14 @@ module.exports = {
   devtool: '#eval-source-map',
   optimization: {
     minimizer: [
-      new TerserPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: true, // Must be set to true if using source-maps in production
-        terserOptions: {
-          // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
-        }
-      }),
+      // new TerserPlugin({
+      //   cache: true,
+      //   parallel: true,
+      //   sourceMap: true, // Must be set to true if using source-maps in production
+      //   terserOptions: {
+      //     // https://github.com/webpack-contrib/terser-webpack-plugin#terseroptions
+      //   }
+      // }),
     ]
   },
   plugins: [
